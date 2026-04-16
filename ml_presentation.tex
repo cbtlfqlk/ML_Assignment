@@ -1,0 +1,100 @@
+\documentclass[12pt,a4paper]{article}
+
+% --- Pacotes Básicos ---
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb}
+\usepackage{booktabs}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{setspace}
+
+\geometry{left=2cm, right=2cm, top=3cm, bottom=2cm}
+\onehalfspacing
+
+\title{K-Nearest Neighbour Modification and Performance Benchmarking}
+\author{
+    Filipe Zheng (202406753) \\
+    Maiara Sol Ribeiro Guedes (202407694) \\
+    Sílvia Cármen Baciu Pinto (202405988)
+}
+\date{\today}
+
+\begin{document}
+\maketitle
+\newpage
+
+\section*{Introduction}
+\addcontentsline{toc}{section}{Introduction}
+\begin{itemize}
+    \item \textbf{Goals:} []
+    \item \textbf{Approach:} []
+    \item \textbf{Results:} []
+\end{itemize}
+\newpage
+
+% --- Índice ---
+\tableofcontents
+\newpage
+
+% --- Introdução e Algoritmo Selecionado ---
+\section{Selecting the Algorithm}
+\subsection{K-Nearest Neighbour Implementation}
+% Descreva aqui o funcionamento lógico do algoritmo base (ex: SVM, Random Forest).
+
+\subsection{Initial Performance Benchmarking}
+% Discuta como o algoritmo se comporta com ruído, outliers ou classes desequilibradas.
+
+% --- Proposta ---
+\section{Algorithm Modification}
+\subsection{Reasons}
+% Por que é necessária uma alteração? Qual o problema identificado no algoritmo base?
+
+\subsection{Description}
+% Detalhe a alteração técnica, fórmulas ou mudanças na lógica do classificador.
+
+% --- Estudo Empírico ---
+\section{Empirical Study}
+\subsection{Testing methodology}
+% Metodologia de teste (ex: Cross-validation).
+
+\subsection{Datasets}
+% Tabela com as características dos dados (instâncias, atributos, rácio de desequilíbrio).
+\begin{table}[h!]
+\centering
+\begin{tabular}{@{}llll@{}}
+\toprule
+Dataset & Instances & Attributes & Variable of interest \\ \midrule
+Data 1  & 1000       & 20        & Imbalance (1:10)            \\
+Data 2  & 500        & 10        & Noise (5\%)                 \\ \bottomrule
+\end{tabular}
+\caption{Datasets}
+\end{table}
+
+\subsection{Hiperparameters}
+% Lista de parâmetros afinados durante as experiências.
+
+\subsection{Performance Benchmarking}
+% Métricas utilizadas (Accuracy, F1-Score, AUC).
+
+% --- Resultados ---
+\section{Final Analysis}
+\subsection{Results}
+% Gráficos e tabelas comparativas entre o algoritmo original e o proposto.
+
+\subsection{Discussion}
+% Interpretação dos dados à luz das hipóteses levantadas.
+
+% --- Conclusão ---
+\section{Conclusion}
+% Resumo das contribuições e limitações, com sugestões para investigação posterior.
+
+% --- Referências ---
+\begin{thebibliography}{9}
+\bibitem{ref1} Gama, J., Carvalho A., Faceli K., Lorena, A.C. and Oliveira, M., \textit{Extração de Conhecimento de Dados: Data Mining}, Edições Sílabo, 2017
+\bibitem{ref2} J. Moreira, A. Carvalho, and T. Horvath, \textit{A General Introduction to Data Analytics}, John Wiley \& Sons, 2018
+\end{thebibliography}
+
+\end{document}
