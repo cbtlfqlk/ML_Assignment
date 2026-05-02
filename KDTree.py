@@ -70,3 +70,32 @@ class kdTree():
         ref = list(row)
         self.explore(list(row),self.tree,array,distF,ref)
         return map(lambda x:(int(x[0]),float(x[1])),array[:-1])
+
+    
+    def exploreD(self,row,tree,array,eps,distF,ref):
+        if not tree: return
+        if tree[0] is None:
+            if distF(row,tree[1])<=eps:array.append(tree[2])
+            return
+        col = tree[0]
+        node = tree[1]
+        if (not (isinstance(node[col],(float)) and math.isnan(node[col]))) and ((isinstance(row[col],(float))and math.isnan(row[col])) or row[col] > node[col]):
+            self.exploreD(row,tree[3],array,eps,distF,ref)
+            t = ref[col]
+            ref[col] = node[col]
+            if distF(row,ref) > eps: ref[col] = t;return
+            if distF(row,node)<=eps:array.append(tree[4])
+            self.exploreD(row,tree[2],array,eps,distF,ref)
+        else:
+            self.exploreD(row,tree[2],array,eps,distF,ref)
+            t = ref[col]
+            ref[col] = tree[5]
+            if distF(row,node)<=eps:array.append(tree[4])
+            if distF(row,ref) > eps: ref[col] = t;return
+            self.exploreD(row,tree[3],array,eps,distF,ref)
+        ref[col] = t
+    def epsNeighbors(self,row,eps,distF)-> [int]:
+        array = []
+        ref = list(row)
+        self.exploreD(list(row),self.tree,array,eps,distF,ref)
+        return array
