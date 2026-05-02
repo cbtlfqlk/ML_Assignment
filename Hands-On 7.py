@@ -1,6 +1,9 @@
+from KNN import kdTree
+import pandas as pd
+
 Points = [[4,4],[0,2],[4,3],[0,0],[5,4],[1,1],[2,0],[5,5]]
-
-
+Points = pd.DataFrame(Points)
+#print(Points)
 """
 means = [Points[0],Points[5]]
 
@@ -25,24 +28,28 @@ print(means)
 """
 
 def dbscan(points,MinPts=2,eps=2):
+    tree = kdTree(points)
     def dist(a,b): return sum(abs(i-j) for i,j in zip(a,b))
-    clusts = [-1 for i in points]
-    visited = [0 for i in points]
+    clusts = [-1 for i in range(len(points))]
+    visited = [0 for i in range(len(points))]
     clust = 0
     def scan(ind:int, cluster = None):
         nonlocal dist, points,clust, clusts,eps,MinPts
         if visited[ind]: return
         visited[ind] = 1;
-        point = points[ind]
-        close = [i for i,j in enumerate(points) if dist(j,point)<=eps]
+        point = points.iloc[ind]
+        #close = [i for i,j in points.iterrows() if dist(j,point)<=eps]
+        close = tree.epsNeighbors(point,eps,dist)
         clust = cluster or (clust:=clust+1)
         if len(close)>=MinPts:
             for i in close: clusts[i] = clust;i==ind or scan(i,clust)
     for i in range(len(points)): scan(i)
     return clusts
 
-print(dbscan(Points,2,2))
+print(dbscan(Points,2,1))
             
+
+        
 
         
             
