@@ -1,4 +1,4 @@
-from KNN import kdTree
+from KDTree import kdTree
 import pandas as pd
 
 Points = [[4,4],[0,2],[4,3],[0,0],[5,4],[1,1],[2,0],[5,5]]
